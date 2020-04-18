@@ -1,10 +1,13 @@
 package com.tomasz.kolnierzak.shopsystem;
 
+import java.time.LocalDate;
+
 public class Product {
     private int productId;
     private int quantityInStock;
     private String productType;
-
+    private LocalDate productionDate;
+    private float price;
     public Product() {
     }
 
@@ -38,6 +41,35 @@ public class Product {
         this.productType = productType;
     }
 
+    public LocalDate getProductionDate() {
+        return productionDate;
+    }
+
+    public void setProductionDate(LocalDate productionDate) {
+        this.productionDate = productionDate;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    //Przeciążenie metody
+    public float getPrice(float taxRate) {
+        return price * (1.0f + taxRate / 100.0f);
+    }
+
+
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
     //Methods
     public void addProduct(){}
+
+    //Przesłonięcie metody
+    @Override
+    public String toString() {
+        return "Product Id: " + getProductId() + ", Quantity in stock: " + getQuantityInStock() + ", Product type: " + getProductType();
+    }
 }
