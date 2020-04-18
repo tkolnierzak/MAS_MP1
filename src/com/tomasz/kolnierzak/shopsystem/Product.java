@@ -32,6 +32,7 @@ public class Product extends ObjectPlus implements Serializable {
         this.productType = productType;
         this.productionDate = productionDate;
         this.price = price;
+        this.categories = new ArrayList<>();
     }
 
     //Settery i gettery
