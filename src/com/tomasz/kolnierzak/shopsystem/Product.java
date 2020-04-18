@@ -1,21 +1,34 @@
 package com.tomasz.kolnierzak.shopsystem;
 
-import java.time.LocalDate;
+import com.tomasz.kolnierzak.extent.ObjectPlus;
 
-public class Product {
+import java.io.IOException;
+import java.io.*;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Product extends ObjectPlus implements Serializable {
     private int productId;
+    private String productName;
     private int quantityInStock;
     private String productType;
+    //Atr zlozony
     private LocalDate productionDate;
     private float price;
-    public Product() {
-    }
 
-    public Product(int productId, int quantityInStock, String productType) {
+    public Product(int productId, String productName, int quantityInStock, String productType, LocalDate productionDate, float price) {
+        super();
         this.productId = productId;
+        this.productName = productName;
         this.quantityInStock = quantityInStock;
         this.productType = productType;
+        this.productionDate = productionDate;
+        this.price = price;
     }
+
+    //Settery i gettery
 
     public int getProductId() {
         return productId;
@@ -23,6 +36,14 @@ public class Product {
 
     public void setProductId(int productId) {
         this.productId = productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public int getQuantityInStock() {
@@ -58,8 +79,6 @@ public class Product {
         return price * (1.0f + taxRate / 100.0f);
     }
 
-
-
     public void setPrice(float price) {
         this.price = price;
     }
@@ -70,6 +89,6 @@ public class Product {
     //Przesłonięcie metody
     @Override
     public String toString() {
-        return "Product Id: " + getProductId() + ", Quantity in stock: " + getQuantityInStock() + ", Product type: " + getProductType();
+        return "Product Id: " + getProductId() + ", Product name: " + getProductName() + ", Quantity in stock: " + getQuantityInStock() + ", Product type: " + getProductType();
     }
 }
