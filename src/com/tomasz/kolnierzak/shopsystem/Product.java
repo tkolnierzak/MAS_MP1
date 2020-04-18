@@ -14,6 +14,12 @@ public class Product extends ObjectPlus implements Serializable {
     private String productName;
     private int quantityInStock;
     private String productType;
+    //Atr opcjonalny
+    private Double weight;
+    //Atr powtarzalny - moze miec wiele wartosci
+    private ArrayList<String> categories;
+    //Atr klasowy
+    private static final float vatTax = 1.23f;
     //Atr zlozony
     private LocalDate productionDate;
     private float price;
@@ -74,9 +80,13 @@ public class Product extends ObjectPlus implements Serializable {
         return price;
     }
 
+    /**
+     * Atrybut pochodny Price zrealizowany jako metoda.
+     * @return
+     */
     //Przeciążenie metody
     public float getPrice(float taxRate) {
-        return price * (1.0f + taxRate / 100.0f);
+        return price * (1.0f + taxRate / 100.0f) * vatTax;
     }
 
     public void setPrice(float price) {
@@ -84,7 +94,14 @@ public class Product extends ObjectPlus implements Serializable {
     }
 
     //Methods
-    public void addProduct(){}
+    public void addProduct(){
+        if(weight != null) {
+            // dokonaj obliczeń
+        }
+        else {
+            // brak wartości dla weight
+        }
+    }
 
     //Przesłonięcie metody
     @Override
