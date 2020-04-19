@@ -79,5 +79,7 @@ public abstract class User {
         }
     }
 
-    public abstract void showLoginStatus();
+    public void showLoginStatus(){
+        System.out.println("Status Użytkownika: " + getLoginStatus());
+    };
 }

@@ -62,6 +62,7 @@ public class Customer extends User {
     public void login() {}
     public void updateProfile() {}
 
+    //Przesłonięcie metody
     @Override
     public void showLoginStatus() {
         System.out.println("Status Klienta: " + getLoginStatus());

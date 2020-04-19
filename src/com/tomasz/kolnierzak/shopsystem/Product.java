@@ -20,6 +20,7 @@ public class Product extends ObjectPlus implements Serializable {
     private ArrayList<String> categories;
     //Atr klasowy
     private static final float vatTax = 1.23f;
+    private static final float shippingBoxWeight = 10.65f;
     //Atr zlozony
     private LocalDate productionDate;
     private float price;
@@ -67,6 +68,40 @@ public class Product extends ObjectPlus implements Serializable {
 
     public void setProductType(String productType) {
         this.productType = productType;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    /**
+     * Atrybut pochodny Weight zrealizowany jako metoda.
+     * @return
+     */
+    public Double getGrossWeight() {
+        return weight + shippingBoxWeight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public ArrayList<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(ArrayList<String> categories) {
+        this.categories = categories;
+    }
+
+    public void addNewCategory(String category) {
+        this.categories.add(category);
+    }
+
+    //Przeciążenie metody
+    public void addNewCategory(String category1, String category2){
+        this.categories.add(category1);
+        this.categories.add(category2);
     }
 
     public LocalDate getProductionDate() {

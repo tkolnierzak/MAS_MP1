@@ -34,6 +34,7 @@ public class Administrator extends User {
         }
     }
 
+    //Przesłonięcie metody
     @Override
     public void showLoginStatus() {
         System.out.println("Status Administratora: " + getLoginStatus());
